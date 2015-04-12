@@ -26,7 +26,7 @@ var (
 func doHosts(_mybox string) {
 	ostr := ""
 	ostrVerbose := ""
-	hostsmap := etchosts.DoListHostsdata(opt.Verbose)
+	hostsmap := etchosts.Hosts(opt.Verbose)
 	if true {
 		ostr += fmt.Sprintf("box,%s\n", etchosts.Header())
 		strs := genutil.SortedUniqueKeys(etchosts.Keys_String2PtrHostsdata(&hostsmap))
@@ -55,7 +55,7 @@ func doHosts(_mybox string) {
 func doFstab(_mybox string) {
 	ostr := ""
 	ostrVerbose := ""
-	fstabmap := etcfstab.DoListFstabdata(opt.Verbose)
+	fstabmap := etcfstab.Fstab(opt.Verbose)
 	if true {
 		ostr += fmt.Sprintf("box,%s\n", etcfstab.Header())
 		strs := genutil.SortedUniqueKeys(etcfstab.Keys_String2PtrFstabdata(&fstabmap))
@@ -84,7 +84,7 @@ func doFstab(_mybox string) {
 func doService(_mybox string) {
 	ostr := ""
 	ostrVerbose := ""
-	servicemap := etcservice.DoListServicedata(opt.Verbose)
+	servicemap := etcservice.Service(opt.Verbose)
 	if true {
 		ostr += fmt.Sprintf("box,%s\n", etcservice.Header())
 		strs := genutil.SortedUniqueKeys(etcservice.Keys_String2PtrServicedata(&servicemap))
@@ -113,8 +113,8 @@ func doService(_mybox string) {
 func doUser(_mybox string) {
 	ostr := ""
 	ostrVerbose := ""
-	usermap := etcuser.DoListUserdata(opt.Verbose)
-	shadowmap := etcshadow.DoListShadowdata(opt.Verbose)
+	usermap := etcuser.User(opt.Verbose)
+	shadowmap := etcshadow.Shadow(opt.Verbose)
 	if true {
 		ostr += fmt.Sprintf("box,%s,%s\n", etcuser.Header(), etcshadow.Header())
 		strs := genutil.SortedUniqueKeys(etcuser.Keys_String2PtrUserdata(&usermap))
